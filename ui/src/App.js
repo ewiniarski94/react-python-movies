@@ -7,7 +7,6 @@ import MoviesList from "./MoviesList";
 function App() {
     const [movies, setMovies] = useState([]);
     const [addingMovie, setAddingMovie] = useState(false);
-    const [deletingMovie, setDeletingMovie] = useState(false);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -34,7 +33,7 @@ function App() {
     }
 
     async function handleDeleteMovie(movie) {
-        const url = `movies/${movie.id}`;
+        const url = `${movie.id}`;
         const response = await fetch(url,
             {method: 'DELETE'});
         if (response.ok) {
