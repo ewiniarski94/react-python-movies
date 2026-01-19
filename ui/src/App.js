@@ -5,8 +5,7 @@ import MovieForm from "./MovieForm";
 import MoviesList from "./MoviesList";
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import Swal from 'sweetalert2';
-import { confirmDelete, showSuccess } from "./utils/alerts";
+import { confirmDelete } from "./utils/alerts";
 
 function App() {
     const [movies, setMovies] = useState([]);

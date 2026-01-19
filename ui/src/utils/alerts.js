@@ -12,11 +12,3 @@ export const confirmDelete = async (title) => {
         cancelButtonText: 'Cancel'
     });
 };
-
-export const showSuccess = (title, message) => {
-    return Swal.fire(
-        title,
-        message,
-        'success'
-    );
-};
