@@ -35,7 +35,7 @@ function App() {
     }
 
     async function handleDeleteMovie(movie) {
-        const url = `${movie.id}`;
+        const url = `/movies/${movie.id}`;
         const response = await fetch(url,
             {method: 'DELETE'});
         if (response.ok) {
