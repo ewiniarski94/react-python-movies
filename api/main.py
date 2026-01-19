@@ -1,17 +1,18 @@
 from fastapi import FastAPI, Body
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from datetime import datetime
 from typing import Any
 import sqlite3
 
 
 class Movie(BaseModel):
-    title: str
-    year: str
-    actors: str
-    director: str
-    description: str
+    title: str = Field(..., min_length=1, max_length=100, description="Tytuł filmu")
+    year: int = Field(..., ge=1888, le=datetime.now().year + 1)
+    actors: str = Field(..., min_length=2)
+    director: str = Field(..., min_length=2)
+    description: str | None = Field(default=None, max_length=500)
 
 app = FastAPI()
 
