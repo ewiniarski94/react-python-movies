@@ -9,7 +9,7 @@ import sqlite3
 
 class Movie(BaseModel):
     title: str = Field(..., min_length=1, max_length=100, description="Tytuł filmu")
-    year: int = Field(..., ge=1888, le=datetime.now().year + 1)
+    year: int = Field(..., ge=1888, le=datetime.now().year)
     actors: str = Field(..., min_length=2)
     director: str = Field(..., min_length=2)
     description: str | None = Field(default=None, max_length=500)
