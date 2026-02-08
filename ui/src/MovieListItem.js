@@ -15,10 +15,11 @@ export default function MovieListItem(props) {
             <div>
                 <strong>Description:</strong> {props.movie.description}
             </div>
-            <button
-                onClick={props.onDelete}>
-                Delete
-            </button>
+            <div style={{display: 'flex', gap: '20px', marginTop: '10px'}}>
+                <button onClick={props.onDelete}>
+                    Delete
+                </button>
+            </div>
         </div>
     );
 }
