@@ -3,7 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from datetime import datetime
-from typing import Any
+from typing import Any, Optional
 import sqlite3
 
 
@@ -12,8 +12,7 @@ class Movie(BaseModel):
     year: int = Field(..., ge=1888, le=datetime.now().year)
     actors: str = Field(..., min_length=2)
     director: str = Field(..., min_length=2)
-    description: str | None = Field(default=None, max_length=500)
-
+    description: Optional[str] = Field(default=None, max_length=500)
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="../ui/build/static", check_dir=False), name="static")
